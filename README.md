@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Oriol Escolar's Crypto Wallet
 
-## Getting Started
+In this document I will give a bit of a techincal breakdown of the technologies I used and instructions to start and test everything.
 
-First, run the development server:
+## Structure
 
-```bash
-npm run dev
-# or
-yarn dev
+The Project is separated in the following folders:
+
+- Api (All the backend related code is found in that folder)
+
+- Pages (NextJS Pages folder)
+
+- Styles (NextJS Pages stylesheets)
+
+- App (NextJS App components and middleware)
+
+## App
+
+The App has been developed using NextJS
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Server
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+To develop the Server I've used NodeJS with Express and http package to serve both NextJS and Api requests through the express server. For the database I've used MongoDB with Mongoose framework.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To start the app execute the following command:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm run dev
+```
 
-## Learn More
+## Comments
 
-To learn more about Next.js, take a look at the following resources:
+I've added the `.env` file just for demonstration, in real environments this file should not be in the repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Things I would have liked to do / improved
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For the server side, in an ideal case I would have liked to test both the router and not the model's logic.
 
-## Deploy on Vercel
+I would have also liked to perform some Integration and unit tests in the App (NextJS).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Unfortunately I haven't been able to do the testing and code comments I woudl have liked due to lack of time and personal issues. All of this has been done in aproximately 6 hours, as I've said, due to lack of time caused by personal stuff.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I am looking forward to discuss my approach and some things I would have done in a real case scenario.
