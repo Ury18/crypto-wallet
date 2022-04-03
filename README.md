@@ -18,7 +18,6 @@ The Project is separated in the following folders:
 
 The App has been developed using NextJS
 
-```
 
 ## Server
 
