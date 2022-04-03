@@ -1,5 +1,6 @@
 const User = require('./index')
 const bcrypt = require('bcrypt')
+const user = require('./index')
 
 controller = {
 
@@ -124,7 +125,7 @@ controller = {
                     user.cryptos[cryptoIndex].balance = newBalance
                     user.cryptos[cryptoIndex].transactions.push({
                         transaction_type: transactionType,
-                        value: newBalance,
+                        value: Number(value),
                         new_balance: user.cryptos[cryptoIndex].balance
                     })
 
@@ -147,6 +148,22 @@ controller = {
             throw Error(message)
         }
     },
+
+    async getUserData(userId) {
+        let user = await User.findById(userId).select('-__v').lean()
+        user.id = user._id
+        delete user._id
+        delete user.password
+
+        user.cryptos.forEach(crypto => {
+            delete crypto._id
+            crypto.transactions.forEach(transaction => {
+                delete transaction._id
+            })
+        })
+
+        return user
+    }
 
 }
 

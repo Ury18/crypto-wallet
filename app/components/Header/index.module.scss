@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0;
+    background-color: white;
+    position: relative;
+
+    .backButton {
+        position: absolute;
+        left: 10px;
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: gray;
+        }
+    }
+
+    h1 {
+        margin: auto;
+        font-size: 1em;
+    }
+}

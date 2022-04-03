@@ -1,0 +1,27 @@
+.crypto {
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1em;
+        width: 100%;
+        font-size: 14px;
+        background-color: white;
+        margin: auto;
+        border-bottom: 5px solid #f9f9f9;
+
+        .image {
+            margin-right: 2em;
+        }
+        .name {
+            margin: 0 auto 0 2em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .balance {
+            font-weight: 500;
+            color: darkgreen;
+        }
+    }
+}

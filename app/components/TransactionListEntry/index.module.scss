@@ -1,0 +1,82 @@
+.transaction {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    width: 100%;
+    font-size: 14px;
+    background-color: white;
+    margin: auto;
+    border-bottom: 5px solid #f9f9f9;
+
+    .icon {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 2em;
+    }
+
+    svg {
+        width: 50%;
+        height: 50%;
+    }
+
+    .type {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        .transaction_type_info {
+            text-transform: capitalize;
+            margin: 0;
+            margin-bottom: 2px;
+        }
+
+        .date {
+            margin: 0;
+            color: gray;
+        }
+    }
+
+    .value {
+        margin-left: auto;
+        text-align: right;
+        font-weight: 500;
+    }
+
+    &.received {
+
+        .icon {
+            background-color: rgba(144, 238, 144, 0.314);
+
+            svg {
+                fill: darkgreen;
+            }
+        }
+
+        .value {
+            color: darkgreen;
+        }
+    }
+
+    &.sent {
+
+        .icon {
+            background-color: lightcoral;
+
+            svg {
+                fill: darkred;
+            }
+        }
+
+        .value {
+            color: darkred;
+        }
+    }
+
+
+}

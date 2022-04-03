@@ -33,6 +33,7 @@ const tokenHelper = {
     tokenVerifierMiddleware(req, res, next) {
         const { headers: { authorization } } = req
         if (authorization) {
+            console.log(authorization)
             const token = authorization.substring(7)
             this.propagateRequestInfo(req, res, next, token)
         } else {

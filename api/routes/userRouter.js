@@ -18,6 +18,15 @@ userRouter.route('/')
             }
         }
     })
+    .get(tokenVerifierMiddleware, async (req, res) => {
+        try {
+            let user = await controller.getUserData(req.tokenUserId)
+            res.status(200).send(user)
+
+        } catch ({ message }) {
+            res.status(400).send({ error: message })
+        }
+    })
 
 //Endpoint to authenticate
 userRouter.route('/authenticate')
