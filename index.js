@@ -11,11 +11,14 @@ const dev = process.env.NODE_DEV !== 'production'
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler()
 const httpServer = express()
+
 const routers = require('./api/routes')
+const databaseBoilerplate = require('./api/scripts/database-boilerplate')
 
 mongoose.connect(db_url)
     .then(async () => {
         await nextApp.prepare()
+        await databaseBoilerplate()
         httpServer.use(bodyParser.json())
         httpServer.use(bodyParser.urlencoded({ extended: true }))
 
