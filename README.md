@@ -33,6 +33,8 @@ npm run dev
 
 I've added the `.env` file just for demonstration, in real environments this file should not be in the repository.
 
+Also, the app design has been done as a "mobile only" design and has a lot of room for improvements, specially regarding smoothnes and details.
+
 ## Things I would have liked to do / improved
 
 For the server side, in an ideal case I would have liked to test both the router and not the model's logic.
