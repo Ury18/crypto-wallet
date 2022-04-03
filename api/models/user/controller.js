@@ -67,12 +67,22 @@ controller = {
                         transactions: [{
                             transaction_type: transactionType,
                             value: Number(value),
-                            new_balance: Number(value)
+                            new_balance: Number(value),
                         }]
                     }
                     user.cryptos.push(newCrypto)
                     user = await user.save()
-                    return newCrypto
+                    user = await User.findById(user.id).select('-__v').lean()
+
+                    cryptoIndex = user.cryptos.findIndex((element) => element.name == crypto)
+
+                    let res = user.cryptos[cryptoIndex]
+                    delete res._id
+                    res.transactions.forEach(transaction => {
+                        delete transaction._id
+                    })
+
+                    return res
 
                 } else {
                     user.cryptos[cryptoIndex].balance = Number(user.cryptos[cryptoIndex].balance) + Number(value)

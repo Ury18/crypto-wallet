@@ -28,8 +28,7 @@ const User = new Schema({
             enum: ["doge"],
         },
         balance: {
-            type: Number,
-            default: 10000000000
+            type: Number
         },
         transactions: [{
             transaction_type: {
@@ -37,7 +36,11 @@ const User = new Schema({
                 enum: ["received", "sent"]
             },
             value: Number,
-            new_balance: Number
+            new_balance: Number,
+            date: {
+                type: Date,
+                default: Date.now
+            }
         }]
     }],
 
