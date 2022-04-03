@@ -11,12 +11,17 @@ const dev = process.env.NODE_DEV !== 'production'
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler()
 const httpServer = express()
+const routers = require('./api/routes')
 
 mongoose.connect(db_url)
     .then(async () => {
         await nextApp.prepare()
         httpServer.use(bodyParser.json())
         httpServer.use(bodyParser.urlencoded({ extended: true }))
+
+        routers.forEach(router => {
+            httpServer.use(`/api/${router.path}`, router.router)
+        })
 
         //Handles react
         httpServer.all('*', (req, res) => {
